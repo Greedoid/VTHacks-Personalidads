@@ -1,0 +1,6 @@
+import oauth2 as oauth
+import urllib
+consumer = oauth.Consumer(CONSUMER_KEY, CONSUMER_SECRET)
+client = oauth.Client(consumer)
+response = client.request('http://api.rdio.com/1/', 'POST', urllib.urlencode({'method': 'get', 'keys': 'a184236,a254895,a242205'}))
+print response[1]

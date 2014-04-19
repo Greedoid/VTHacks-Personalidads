@@ -1,0 +1,2 @@
+CONSUMER_KEY = '99mj4a9f5g443vbabq5kges3'
+CONSUMER_SECRET = 'RenWvP5pa7'
