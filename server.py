@@ -15,6 +15,8 @@ from genre import *
 from personality import *
 import logging
 from logging.handlers import RotatingFileHandler
+import re
+import unirest
 
 class rdio_simple:
 
@@ -105,7 +107,29 @@ def demo():
 	name = request.args.get('name')
 	if name is None:
 		return redirect("/", code=302)
-	return render_template("demo.html")
+	url = "http://checkip.dyndns.org"
+	somethingElse = urllib.urlopen(url).read()
+	theIP = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3}", somethingElse)
+	userip = str(theIP[0])
+	response = unirest.get("https://chrislim2888-ip-address-geolocation.p.mashape.com/?key=4b56030e11addf41f025a6d6cdf091e53ec62d61bcddda2be90515d1424132f1&ip=" + userip + "&format=json",
+	    headers={ 
+			"X-Mashape-Authorization": "NBeQh8SEbtgWfQ6TcRIoYSnGYEIx6yjo"
+	  }
+	);
+	newsponse = str(response.raw_body)
+	blah = json.loads(newsponse)
+	lat = blah['latitude']
+	lon = blah['longitude']
+	maxlat = 55
+	minlat = 20
+	maxlon = 180
+	minlon = 60
+	lat = float(lat)
+	lon = float(lon)
+
+	scaleLat = (maxlat-lat)/(maxlat-minlat)
+	scaleLon = (maxlon-abs(lon))/(maxlon-minlon)
+	return render_template("demo.html", scaleLat = scaleLat, scaleLon = scaleLon)
 
 @app.route("/demoJSON", methods=['POST', 'GET'])
 def demoJSON():

@@ -23,15 +23,37 @@
     <script src="static/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/js/modernizr.custom.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
-   	</script>
 	<script>
+		$(document).ready(function(){
+			var canvas = document.getElementById("canvas"),
+		    ctx = canvas.getContext("2d");
+		    canvas.height = 400;
+		    canvas.width = 610;
+			var background = new Image();
+			background.src = "http://libremap.org/data/boundary/united_states/contig_us_utm_zone_14_600px.png";
 
+			background.onload = function(){
+			    ctx.drawImage(background,0,0); 
+			  var centerX = canvas.width * {{scaleLon}};
+		      var centerY = canvas.height * {{scaleLat}};
+		      var radius = 5;
+
+		      ctx.beginPath();
+		      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+		      ctx.fillStyle = 'blue';
+		      ctx.fill();
+		      ctx.lineWidth = 1;
+		      ctx.strokeStyle = '#000033';
+		      ctx.stroke();  
+			};
+		});
+		
 	</script>
     <style>
     	#chart{
     		width: 50%;
     		height: auto;
-    		margin-top: 20px;
+    		margin-top: 30px;
     		float: left;
     	}
     	#notChart{
@@ -39,7 +61,6 @@
     		margin-top: 100px;
     		float: left;
     		text-align: center;
-    		justify-content: center;
     	}
     	#spiderWeb{
     		margin: 0px auto;
@@ -69,6 +90,9 @@
 	    <div id="notChart">
 	    	<div id="spiderWeb">
 	    	</div>
+	    	<canvas id="canvas">
+
+	    	</canvas>
 	    </div>
 	    <script>
 	    	var query = window.location.search.substring(1);
