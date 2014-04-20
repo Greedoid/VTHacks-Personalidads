@@ -19,40 +19,14 @@
     
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-    
+    <script src="https://cdn.goinstant.net/v1/platform.min.js"></script>
     <script src="static/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/js/modernizr.custom.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			var canvas = document.getElementById("canvas"),
-		    ctx = canvas.getContext("2d");
-		    canvas.height = 400;
-		    canvas.width = 610;
-			var background = new Image();
-			background.src = "http://libremap.org/data/boundary/united_states/contig_us_utm_zone_14_600px.png";
-
-			background.onload = function(){
-			    ctx.drawImage(background,0,0); 
-			  var centerX = canvas.width * {{scaleLon}};
-		      var centerY = canvas.height * {{scaleLat}};
-		      var radius = 5;
-
-		      ctx.beginPath();
-		      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-		      ctx.fillStyle = 'blue';
-		      ctx.fill();
-		      ctx.lineWidth = 1;
-		      ctx.strokeStyle = '#000033';
-		      ctx.stroke();  
-			};
-		});
-		
-	</script>
+	
     <style>
     	#chart{
     		width: 50%;
-    		height: auto;
     		margin-top: 30px;
     		float: left;
     	}
@@ -92,7 +66,7 @@
 	    	</div>
 	    	<canvas id="canvas">
 
-	    	</canvas>
+	    	<canvas>
 	    </div>
 	    <script>
 	    	var query = window.location.search.substring(1);
@@ -112,6 +86,52 @@
 	    	var d = [banana['values']];
 	    	RadarChart.draw("#spiderWeb", d);
 	    </script>
+	    <script>
+		$(document).ready(function(){
+			var canvas = document.getElementById("canvas"),
+		    ctx = canvas.getContext("2d");
+		    canvas.height = 400;
+		    canvas.width = 610;
+			var background = new Image();
+			background.src = "http://libremap.org/data/boundary/united_states/contig_us_utm_zone_14_600px.png";
+
+			background.onload = function(){
+			  	ctx.drawImage(background,0,0);  
+		      	var url = 'https://goinstant.net/06c4fff94dc0/MusicTracker';
+				var userDefaults = {displayName: 'Roger User'};
+				goinstant.connect(url, {user: userDefaults}, function(err, connection, room) {
+				  if (err) {
+				    console.log('Error connecting to GoInstant:', err);
+				    return;
+				  }
+
+				  // you're connected and in the `lobby` room. with the displayName 'Roger User'
+
+				  var key = room.key('/locations');
+				  key.add({"lat":{{scaleLat}},"lng":{{scaleLon}}, "personality":banana['values']});
+				   key.on('add', function(value, context) {
+				      console.log("HELLO");
+				      var centerX = canvas.width * value.lng;
+				      var centerY = canvas.height * value.lat;
+				      var colorArray = value.personality;
+				      var colorTotal = colorArray[0]['value'] + colorArray[1]['value']  + colorArray[2]['value'] + colorArray[3]['value'] +colorArray[4]['value'];
+				      var color = ((colorTotal / 25) * 4294967295).toString(16);
+				      console.log(color);
+				      var radius = 5;
+				      ctx.globalAlpha = 0.5;
+				      ctx.beginPath();
+				      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+				      ctx.fillStyle = color;
+				      ctx.fill();
+				      ctx.lineWidth = 1;
+				      ctx.strokeStyle = '#000033';
+				      ctx.stroke(); 
+				  });
+				});
+			};
+		});
+		
+	</script>
 	    
 	</body>
 </html>
