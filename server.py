@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from db import *
 from flask import Flask, render_template, request, redirect
 import sys
 import pprint
@@ -24,8 +25,8 @@ class rdio_simple:
 		name = self.rdio_obj.call("findUser", {"vanityName": user_name})
 		return name['result']['key']
 
-	def get_collection_from_key(self, key):
-		collection = self.rdio_obj.call("getTracksInCollection", {"user":key, "extras":"playCount", "count": "100"})
+	def get_collection_from_key(self, key, count="100"):
+		collection = self.rdio_obj.call("getTracksInCollection", {"user":key, "extras":"playCount", "count":count})
 		return collection
 	
 	def get_artists_from_collection(self, collection):
@@ -69,10 +70,18 @@ def map_subgenres_to_shitshow(genres):
 	en = pyen.Pyen(ECHO_NEST_API_KEY)
 	for key, value in genres.iteritems():
 		if key not in global_shitshow:
-			response = en.get('genre/similar', name=key)
-			gen = get_first_global_genre(response['genres'])
-			if gen is not None:
-				turn_dict_for_what[key] = gen['name'] 
+			stuff = get_mapped_genre(key) #Check if subgenre is in DB
+			if stuff is None:		#If we return none, need to get similarity call 
+				response = en.get('genre/similar', name=key)
+				gen = get_first_global_genre(response['genres'])
+				if gen is not None:
+					turn_dict_for_what[key] = gen['name'] 
+					insert_mapping(key, gen['name']) #Once we get the global mapping, we insert into DB
+				else:
+					insert_mapping(key, 'Unknown')
+			else:
+				turn_dict_for_what[key] = stuff		
+				
 		else:
 			turn_dict_for_what[key] = key
 	return turn_dict_for_what
