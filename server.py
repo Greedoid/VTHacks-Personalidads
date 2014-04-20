@@ -25,7 +25,7 @@ class rdio_simple:
 		return name['result']['key']
 
 	def get_collection_from_key(self, key):
-		collection = self.rdio_obj.call("getTracksInCollection", {"user":key, "extras":"playCount"})
+		collection = self.rdio_obj.call("getTracksInCollection", {"user":key, "extras":"playCount", "count": "100"})
 		return collection
 	
 	def get_artists_from_collection(self, collection):
@@ -117,12 +117,12 @@ def demoJSON():
 	print "Finding personality............"
 	finalList = personality(swappedDict)
 	personalityDict = {}
-	personalityDict['Extraversion'] = str(round(finalList[0],2))
-	personalityDict['Agreeableness'] = str(round(finalList[1],2))
-	personalityDict['Conscientiousness'] = str(round(finalList[2],2))
-	personalityDict['Neuroticism'] = str(round(finalList[3],2))
-	personalityDict['Openness'] = str(round(finalList[4],2))
-	personalityString = [{'name':key,"size":value} for key,value in personalityDict.items()]
+	personalityDict['Extraversion'] = round(finalList[0],2)
+	personalityDict['Agreeableness'] = round(finalList[1],2)
+	personalityDict['Conscientiousness'] = round(finalList[2],2)
+	personalityDict['Neuroticism'] = round(finalList[3],2)
+	personalityDict['Openness'] = round(finalList[4],2)
+	personalityString = [{'axis':key,'value':value} for key,value in personalityDict.items()]
 	#finalJSON = "{'data':"+data+", 'values':[{axis:'Extraversion', value:"+str(round(finalList[0], 2))+"},{axis:'Agreeableness', value:"+str(round(finalList[1], 2))+"},{axis:'Conscientiousness', value:"+str(round(finalList[2], 2))+"},{axis:'Neuroticism', value:"+str(round(finalList[3], 2))+"},{axis:'Openness',value:"+str(round(finalList[4], 2))+"}]}"
 	#finalJSON = "{'data':"+data+", 'values':{"+str(json.dumps(personalityString)) +"}}"
 	#finalJSON = "{'data':"+data+"}"

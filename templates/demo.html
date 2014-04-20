@@ -29,14 +29,20 @@
 	</script>
     <style>
     	#chart{
-    		width: 30%;
+    		width: 50%;
     		height: auto;
     		margin-top: 20px;
     		float: left;
     	}
     	#notChart{
-    		width: 70%;
-    		margin-top: 20px;
+    		width: 50%;
+    		margin-top: 100px;
+    		float: left;
+    		text-align: center;
+    		justify-content: center;
+    	}
+    	#spiderWeb{
+    		margin: 0px auto;
     	}
     </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -61,6 +67,8 @@
 	    </div>
 	    <div id="chart"></div>
 	    <div id="notChart">
+	    	<div id="spiderWeb">
+	    	</div>
 	    </div>
 	    <script>
 	    	var query = window.location.search.substring(1);
@@ -71,8 +79,15 @@
 			xhReq.open("GET", sourceLocation, false);
 			xhReq.send(null);
 			var banana = (JSON.parse(xhReq.responseText))
-			var keeper = banana['data'];	
+			var keeper = banana['data'];
+			console.log(banana['values']);	
 	    </script>
 	    <script type="text/javascript" src="static/js/bubble.js"></script>
+	    <script type="text/javascript" src="static/js/spiderWeb.js"></script>
+	    <script>
+	    	var d = [banana['values']];
+	    	RadarChart.draw("#spiderWeb", d);
+	    </script>
+	    
 	</body>
 </html>
