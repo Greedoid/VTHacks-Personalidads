@@ -1,0 +1,99 @@
+Exception on /demoJSON [GET]
+Traceback (most recent call last):
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 109, in demoJSON
+    key = r_d.get_user_key_from_name(name)
+  File "server.py", line 24, in get_user_key_from_name
+    name = self.rdio_obj.call("findUser", {"vanityName": user_name})
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 78, in call
+    return json.loads(self.__signed_post('http://api.rdio.com/1/', params))
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 48, in __signed_post
+    res = urlopen(req)
+  File "/usr/lib/python2.7/urllib2.py", line 127, in urlopen
+    return _opener.open(url, data, timeout)
+  File "/usr/lib/python2.7/urllib2.py", line 404, in open
+    response = self._open(req, data)
+  File "/usr/lib/python2.7/urllib2.py", line 422, in _open
+    '_open', req)
+  File "/usr/lib/python2.7/urllib2.py", line 382, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.7/urllib2.py", line 1214, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "/usr/lib/python2.7/urllib2.py", line 1184, in do_open
+    raise URLError(err)
+URLError: <urlopen error timed out>
+Exception on /demoJSON [GET]
+Traceback (most recent call last):
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 109, in demoJSON
+    key = r_d.get_user_key_from_name(name)
+  File "server.py", line 24, in get_user_key_from_name
+    name = self.rdio_obj.call("findUser", {"vanityName": user_name})
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 78, in call
+    return json.loads(self.__signed_post('http://api.rdio.com/1/', params))
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 48, in __signed_post
+    res = urlopen(req)
+  File "/usr/lib/python2.7/urllib2.py", line 127, in urlopen
+    return _opener.open(url, data, timeout)
+  File "/usr/lib/python2.7/urllib2.py", line 404, in open
+    response = self._open(req, data)
+  File "/usr/lib/python2.7/urllib2.py", line 422, in _open
+    '_open', req)
+  File "/usr/lib/python2.7/urllib2.py", line 382, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.7/urllib2.py", line 1214, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "/usr/lib/python2.7/urllib2.py", line 1184, in do_open
+    raise URLError(err)
+URLError: <urlopen error timed out>
+Exception on /demoJSON [GET]
+Traceback (most recent call last):
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 109, in demoJSON
+    key = r_d.get_user_key_from_name(name)
+  File "server.py", line 24, in get_user_key_from_name
+    name = self.rdio_obj.call("findUser", {"vanityName": user_name})
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 78, in call
+    return json.loads(self.__signed_post('http://api.rdio.com/1/', params))
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 48, in __signed_post
+    res = urlopen(req)
+  File "/usr/lib/python2.7/urllib2.py", line 127, in urlopen
+    return _opener.open(url, data, timeout)
+  File "/usr/lib/python2.7/urllib2.py", line 404, in open
+    response = self._open(req, data)
+  File "/usr/lib/python2.7/urllib2.py", line 422, in _open
+    '_open', req)
+  File "/usr/lib/python2.7/urllib2.py", line 382, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.7/urllib2.py", line 1214, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "/usr/lib/python2.7/urllib2.py", line 1184, in do_open
+    raise URLError(err)
+URLError: <urlopen error [Errno 110] Connection timed out>

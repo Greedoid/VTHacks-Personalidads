@@ -1,0 +1,104 @@
+Exception on /demoJSON [GET]
+Traceback (most recent call last):
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 109, in demoJSON
+    key = r_d.get_user_key_from_name(name)
+  File "server.py", line 24, in get_user_key_from_name
+    name = self.rdio_obj.call("findUser", {"vanityName": user_name})
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 78, in call
+    return json.loads(self.__signed_post('http://api.rdio.com/1/', params))
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/rdio.py", line 48, in __signed_post
+    res = urlopen(req)
+  File "/usr/lib/python2.7/urllib2.py", line 127, in urlopen
+    return _opener.open(url, data, timeout)
+  File "/usr/lib/python2.7/urllib2.py", line 404, in open
+    response = self._open(req, data)
+  File "/usr/lib/python2.7/urllib2.py", line 422, in _open
+    '_open', req)
+  File "/usr/lib/python2.7/urllib2.py", line 382, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.7/urllib2.py", line 1214, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "/usr/lib/python2.7/urllib2.py", line 1184, in do_open
+    raise URLError(err)
+URLError: <urlopen error [Errno 110] Connection timed out>
+Exception on /demoJSON [GET]
+Traceback (most recent call last):
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 111, in demoJSON
+    genre_dict = make_genre_dict(make_artist_dict(collection))
+  File "server.py", line 55, in make_genre_dict
+    art = artist.Artist(key, buckets = ['genre'])
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/artist.py", line 79, in __init__
+    super(Artist, self).__init__(id, **kwargs)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/proxies.py", line 43, in __init__
+    profile = self.get_attribute('profile', **{'bucket':buckets})
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/proxies.py", line 53, in get_attribute
+    return super(ArtistProxy, self).get_attribute(*args, **kwargs)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/proxies.py", line 23, in get_attribute
+    result = util.callm("%s/%s" % (self._object_type, method_name), kwargs)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/util.py", line 252, in callm
+    response_dict = get_successful_response(f)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/util.py", line 122, in get_successful_response
+    raise EchoNestAPIError(code, message, headers, http_status)
+EchoNestAPIError: (u'Echo Nest API Error 3: 3|You are limited to 20 accesses every minute. You might be eligible for a rate limit increase, go to http://developer.echonest.com/account/upgrade [HTTP 429]',)
+Exception on /demoJSON [GET]
+Traceback (most recent call last):
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 114, in demoJSON
+    mapping = map_subgenres_to_shitshow(genres_dict)
+NameError: global name 'genres_dict' is not defined
+Exception on /demoJSON [GET]
+Traceback (most recent call last):
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 111, in demoJSON
+    genre_dict = make_genre_dict(make_artist_dict(collection))
+  File "server.py", line 55, in make_genre_dict
+    art = artist.Artist(key, buckets = ['genre'])
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/artist.py", line 79, in __init__
+    super(Artist, self).__init__(id, **kwargs)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/proxies.py", line 43, in __init__
+    profile = self.get_attribute('profile', **{'bucket':buckets})
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/proxies.py", line 53, in get_attribute
+    return super(ArtistProxy, self).get_attribute(*args, **kwargs)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/proxies.py", line 23, in get_attribute
+    result = util.callm("%s/%s" % (self._object_type, method_name), kwargs)
+  File "/home/josneville/CSFiles/VTHacks-Personalidads/venv/local/lib/python2.7/site-packages/pyechonest/util.py", line 257, in callm
+    raise EchoNestIOError(error=e.reason)
+EchoNestIOError: Echo Nest Unknown Error

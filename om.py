@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
 # om is oauth-mini - a simple implementation of a useful subset of OAuth.
