@@ -1,4 +1,4 @@
-var r = 750,
+var r = 650,
     format = d3.format(",d"),
     fill = d3.scale.category20c();
 	
